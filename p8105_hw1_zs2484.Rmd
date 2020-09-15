@@ -1,0 +1,22 @@
+---
+title: "Homework 1"
+Author: Zichen Shu
+output: github_document
+---
+
+This is my solution to HW1.
+
+```{r}
+library(tidyverse)
+```
+
+
+## Problem 1
+
+Create a data frame with the specified elements.
+
+```{r}
+
+
+```
+
