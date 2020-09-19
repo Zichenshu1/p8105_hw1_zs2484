@@ -37,13 +37,27 @@ mean(pull(pro1_df, factor_vec))
 I can take the mean of number and logical but not character and factor
 
 ```{r try numeric}
-as.numeric(pull(pro1_df, samp))
-as.numeric(pull(pro1_df, samp_gt_0))
-as.numeric(pull(pro1_df, char_vec))
-as.numeric(pull(pro1_df, factor_vec))
+as.numeric(pull(pro1_df, samp_gt_0)) * pull(pro1_df, samp)
+as.factor(pull(pro1_df, samp_gt_0)) * pull(pro1_df, samp)
+as.numeric(as.factor(pull(pro1_df, samp_gt_0))) * pull(pro1_df, samp)
 ```
 
 ## Problem 2
+
+```{r}
+data("penguins", package = "palmerpenguins")
+
+plot_df = tibble(
+  b_length = pull(penguins,bill_length_mm),
+  f_length = pull(penguins,flipper_length_mm),
+  species = pull(penguins,species)
+)
+
+ggplot(plot_df, aes(x = b_length, y = f_length, color = species)) + geom_point()
+
+ggsave("plot.pdf", width = 3, height = 3)
+
+```
 
 
 
