@@ -50,7 +50,8 @@ data("penguins", package = "palmerpenguins")
 
 
 Description of the dataset:
-The important variables are  **`r names(penguins)`**.
+The important variables are **`r names(penguins)`**. The names of species are **`r levels(pull(penguins, species))`**. The names of islands are **`r levels(pull(penguins, island))`**. The range of the bill_length in mm is **`r range(pull(penguins,bill_length_mm), na.rm = TRUE)`**. The range of the bill depth in mm is **`r range(pull(penguins,bill_depth_mm), na.rm = TRUE)`**. The range of the flipper length is **`r range(pull(penguins, flipper_length_mm), na.rm = TRUE)`**. The range of the body mass is **`r range(pull(penguins, body_mass_g), na.rm = TRUE)`**. The sexes are **`r levels(pull(penguins,sex))`**. The year is in **`r range(pull(penguins, year), na.rm = TRUE)`**.
+
 The dataset has **`r nrow(penguins)`** rows and **`r ncol(penguins)`** columns.
 The mean flipper size is **`r mean(pull(penguins, flipper_length_mm), na.rm = TRUE)`** mm.
 
