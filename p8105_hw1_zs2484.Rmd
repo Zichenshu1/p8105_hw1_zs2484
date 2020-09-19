@@ -6,7 +6,7 @@ output: github_document
 
 This is my solution to HW1.
 
-```{r}
+```{r, message = FALSE}
 library(tidyverse)
 ```
 
@@ -15,7 +15,7 @@ library(tidyverse)
 
 Create a data frame with the specified elements.
 
-```{r create df}
+```{r create df,  message = FALSE}
 pro1_df = 
   tibble(
     samp = rnorm(10),
@@ -28,7 +28,7 @@ pro1_df =
 
 Take the mean of each variable in my data frame.
 
-```{r take mean}
+```{r take mean, message = FALSE}
 mean(pull(pro1_df, samp))
 mean(pull(pro1_df, samp_gt_0))
 mean(pull(pro1_df, char_vec))
@@ -46,7 +46,17 @@ as.numeric(as.factor(pull(pro1_df, samp_gt_0))) * pull(pro1_df, samp)
 
 ```{r}
 data("penguins", package = "palmerpenguins")
+```
 
+
+Description of the dataset:
+The important variables are  **`r names(penguins)`**.
+The dataset has **`r nrow(penguins)`** rows and **`r ncol(penguins)`** columns.
+The mean flipper size is **`r mean(pull(penguins, flipper_length_mm), na.rm = TRUE)`** mm.
+
+Make a scatter plot of flip_length vs. bill_length from the penguins dataset.
+
+```{r, message = FALSE}
 plot_df = tibble(
   b_length = pull(penguins,bill_length_mm),
   f_length = pull(penguins,flipper_length_mm),
@@ -55,7 +65,7 @@ plot_df = tibble(
 
 ggplot(plot_df, aes(x = b_length, y = f_length, color = species)) + geom_point()
 
-ggsave("plot.pdf", width = 3, height = 3)
+ggsave("plot.pdf")
 
 ```
 
